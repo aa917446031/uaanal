@@ -1,0 +1,28 @@
+<nav th:fragment="navbar (nav)" class="navbar navbar-default" xmlns:th="http://www.thymeleaf.org" th:lang="${language}">
+        <!--<div class="nav-title">-->
+            <!--<span>网站导航</span>-->
+            <!--<a href="javacript:void(0);" class="navbar-minimalize minimalize-styl-2 btn" title="收起菜单">-->
+                <!--<i class="fa fa-bars " style="color: #fff;"></i></a>-->
+        <!--</div>-->
+        <ul class="nav  nav-menu nav-first-leve" id="nav">
+            <li th:each="menu : ${menus}" th:if="${#lists.isEmpty(menu.children)}" >
+                <a th:href="${menu.url}" >
+                    <i ></i>
+                    <div th:class="${menu.icon}"></div> <span class="nav-label" th:text="${menu.menuName}"></span>
+                </a>
+            </li>
+            <li th:each="menu : ${menus}" th:if="${not #lists.isEmpty(menu.children)}" onclick="openItem(this)">
+                <a href="javacript:void(0);">
+                    <i th:class="${menu.icon}"></i>
+                    <span class="nav-label" th:text="${menu.menuName}"></span>
+                    <span  class="fa arrow" style="float: right;margin-right: 4px"></span>
+                </a>
+                <ul class="nav nav-menu nav-second-leve unactive" >
+                    <li th:each="cmenu : ${menu.children}" >
+                        <a th:if="${#lists.isEmpty(cmenu.children)}" th:utext="${cmenu.menuName}"
+                           th:href="@{${cmenu.url}}"></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+</nav>

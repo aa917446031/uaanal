@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${language}">
+<header th:fragment="header (tab)">
+    <div class="header">
+        <div class="logo"></div>
+        <a class="bititle" href="."  th:text="${title}"></a>
+        <a class="nickname " href="."  th:text="${nickname}"></a>
+        <div class="icon"></div>
+    </div>
+    <!--<div class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">-->
+        <!--<div class="navbar-inner">-->
+            <!--<div class="">-->
+                <!--<ul class="header-menu">-->
+                    <!--<li th:each="item : ${list}" th:class="${tab eq item.type} ? active">-->
+                        <!--<a th:href="${item.type} == 'manage' ? (${tab eq 'appCenter'} ? ${item.url}:${manageUrl}) :(${item.type} == 'report' ? (${tab eq 'appCenter'} ?${item.url}:${reportUrl}) : ${item.url}) "-->
+                           <!--th:text="${item.name}"></a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+</html>

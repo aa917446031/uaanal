@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:lang="${#locale.language}">
+<head th:fragment="common_header(title1, metas, links)">
+    <title th:replace="${title1}"></title>
+    <meta charset="utf-8"/>
+
+    <th:block th:replace="${metas}"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="icon" href="/favicon.ico"/>
+
+    <th:block th:replace="${links}"/>
+    <link th:href="@{/css/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/custom.css}" rel="stylesheet">
+    <link th:href="@{/css/common.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <style>
+        .x_content div img{
+            width: 100%;
+        }
+
+        .layout_content{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="layout_header" th:include="layouts/header :: header (${tab})"></div>
+<div class="layout_content">
+    <div layout:fragment="content"></div>
+    <div class="layout_foot" th:include="layouts/footer :: footer"></div>
+</div>
+</body>
+
+<!-- begin to loading the scripts -->
+<script th:src="@{/js/jquery/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+<script type="application/javascript">
+    $(function () {
+        $(".active").parent().removeClass("unactive");
+        init();
+    })
+    window.onresize = function() {
+        init();
+    }
+    var init=function () {
+        var height=document.body.scrollHeight;
+        $(".layout_content").css({"height":height-50});
+        $(".container").css({"height":height-50-39});
+    }
+</script>
+<th:block layout:fragment = "jsAssets">
+    <!-- custom js code -->
+</th:block>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- 定义 tab 显示位置，及默认模板布局文件 -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:lang="${language}"
+      th:with="tab='report',manageUrl='/web/manage',reportUrl='/index/report?type=web',menus=${webMenus}"
+      layout:decorate="layouts/layout2">
+<!-- 使用此处的 title, link, script 来替换布局模板中的 head 内容，注意如果 没有 也需要使用 ~{} 进行占位 -->
+<head th:replace="layouts/layout2 :: common_header(~{::title},~{},~{::link})">
+    <title th:text="${title}"></title>
+    <link th:href="@{/css/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/daterangepicker/css/daterangepicker.css}" rel="stylesheet">
+    <link th:href="@{/css/custom.css}" rel="stylesheet">
+</head>
+<div class="container" layout:fragment="content">
+    <div class="main_container" id="app">
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>实时概况 <a href="javascript:;" data-toggle="popover" data-trigger="hover"
+                                data-content="实时运营状况的整体情况，包括相关指标的趋势、用户来源、页面访问等宏观数据">
+                        <small><i class="fa fa-question-circle-o"></i></small>
+                    </a></h3>
+                </div>
+            </div>
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="form-inline">
+                        <div class="form-group" style="display: none;">
+                            <label>类型：</label>
+                            <select class="form-control" id="type">
+                                <option value="day">日活</option>
+                                <option value="week">周活</option>
+                                <option value="month">月活</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="float: right;margin-right: 30px;">
+                            <label>时间：</label>
+                            <input type="text" placeholder="时间" class="form-control js-daterange"
+                                   style="width: 260px;">
+                        </div>
+                        <div class="form-group" style="display: none">
+                            <button type="submit" class="btn btn-primary" onclick="searchData()"><i
+                                    class="fa fa-search"></i> 搜索
+                            </button>
+                        </div>
+                    </div>
+                    <table class="table text-center mb-0">
+                        <thead>
+                        <tr>
+                            <th>冗余数 <!--<a href="javascript:void(0)" data-toggle="popover" data-trigger="hover"
+                                        data-placement="top" data-content="首次访问小程序页面的用户数，同一用户多次访问不重复计；"><i
+                                    class="fa fa-question-circle-o"></i></a>--></th>
+                            <th>总消息数 <!--<a href="javascript:void(0)" data-toggle="popover" data-trigger="hover"
+                                        data-placement="top" data-content="访问小程序内所有页面的总用户数，同一用户多次访问不重复计；"><i
+                                    class="fa fa-question-circle-o"></i></a>--></th>
+                            <th>冗余度 <!--<a href="javascript:void(0)" data-toggle="popover" data-trigger="hover"
+                                        data-placement="top" data-content="访问小程序内所有页面总次数，多个页面之间跳转、同一页面的重复访问计为多次访问；"><i
+                                    class="fa fa-question-circle-o"></i></a>--></th>
+                        </tr>
+                        </thead>
+                        <tbody id="actualConditionTable">
+                            <tr>
+                                <td>{{tableData.num}}</td>
+                                <td>{{tableData.all}}</td>
+                                <td>{{tableData.ratio}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block layout:fragment="jsAssets">
+    <script th:src="@{/js/jquery/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+    <script th:src="@{/js/bootstrap/bootstrap-select.min.js}"></script>
+    <script th:src="@{/js/daterangepicker/moment.min.js}"></script>
+    <script th:src="@{/js/daterangepicker/daterangepicker.js}"></script>
+    <script th:src="@{/js/vue/vue.min.js}"></script>
+    <script th:src="@{/js/jqPaginator.js}"></script>
+    <script th:src="@{/js/layer/layer.js}"></script>
+    <script th:src="@{/js/echarts/echarts.min.js}"></script>
+    <script th:src="@{/js/distpicker/distpicker.min.js}"></script>
+    <script>
+
+        var searchData = function () {
+            initData();
+        }
+        function initData(){
+            $.ajax({
+                url: '/overview/data',
+                type: 'get',
+                data: {date:startDate+" 00:00:00",type:$("#type").val()},
+                success: function (res) {
+                    console.log(res);
+                    var ratio = "";
+                    if(res.code == 0&&res.data!=undefined&&res.data!=null){
+                        vm.tableData = res.data;
+                        ratio = ((res.data.num/res.data.all)*100).toFixed(2) + "%";
+                    }else{
+                        vm.tableData = {date:startDate,num:0,all:0};
+                        ratio = "0.00%"
+                    }
+                    vm.tableData.ratio = ratio;
+                    console.log(vm.tableData);
+                }
+            });
+        }
+        var vm;
+        var startDate = moment().format('YYYY-MM-DD');
+        $(document).ready(function(){
+            initData();
+            vm = new Vue({
+                el: '#app',
+                data: {
+                    tableData: {}
+                }
+            });
+            var locale = {
+                "format": 'YYYY-MM-DD',
+                "separator": " 至 ",
+                "applyLabel": "确定",
+                "cancelLabel": "取消",
+                "fromLabel": "开始时间",
+                "toLabel": "结束时间'",
+                "customRangeLabel": "自定义",
+                "weekLabel": "W",
+                "daysOfWeek": ["日", "一", "二", "三", "四", "五", "六"],
+                "monthNames": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                "firstDay": 1
+            };
+            $(".js-daterange").daterangepicker({
+                //"autoApply": true,
+                "locale": locale,
+                "opens": "right",
+                "applyClass ": "btn-primary",
+                "startDate": moment(),
+                "endDate": moment(),
+                "alwaysShowCalendars": true,
+                singleDatePicker:true,
+                ranges: {
+                    '今天': [moment(), moment()],
+                    '昨天': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    '7天前': [moment().subtract(6, 'days'), moment()],
+                    '30天前': [moment().subtract(29, 'days'), moment()],
+                    '这个月': [moment().startOf('month'), moment().endOf('month')],
+                    '上个月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, function (start, end) {
+                startDate = start.format('YYYY-MM-DD');
+                searchData();
+            });
+        });
+
+    </script>
+</th:block>
+</html>
+

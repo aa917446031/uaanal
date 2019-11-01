@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:lang="${language}">
+<!-- 该布局带导航栏的上下左右布局 -->
+<head th:fragment="common_header(title1,meta,links)">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="icon" href="/favicon.ico"/>
+    <title th:replace="${title1}"></title>
+    <th:block th:replace="${links}"/>
+    <link th:href="@{/css/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/common.css}" rel="stylesheet">
+</head>
+<body>
+<div class="layout_header" th:include="layouts/header :: header (${tab})"></div>
+<nav class="layout_nav" th:include="layouts/navbar :: navbar (${nav})"></nav>
+<div class="layout_content">
+    <div layout:fragment="content"></div>
+    <div class="layout_foot" th:include="layouts/footer :: footer"></div>
+</div>
+</body>
+<script th:src="@{/js/jquery/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/js/bootstrap/bootstrap.bundle.js}"></script>
+<script th:src="@{/js/layout2.js}"></script>
+<script th:src="@{/js/common.js}"></script>
+<th:block layout:fragment = "jsAssets">
+</th:block>
+</html>

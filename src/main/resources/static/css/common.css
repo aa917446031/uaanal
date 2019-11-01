@@ -1,0 +1,445 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #676a6c;
+    min-width: 500px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    background-color: rgb(248, 248, 248);
+}
+
+*[hidden] {
+    display: none;
+}
+
+.main_container {
+    padding-left: 10px;
+}
+
+.footer {
+    background: none repeat scroll 0 0 white;
+    border-top: 1px solid #e7eaec;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+
+.layout_header .header {
+    height: 60px;
+    background-image: -moz-linear-gradient(0deg, rgb(108, 130, 255) 0%, rgb(101, 35, 192) 100%);
+    background-image: -webkit-linear-gradient(0deg, rgb(108, 130, 255) 0%, rgb(101, 35, 192) 100%);
+    background-image: -ms-linear-gradient(0deg, rgb(108, 130, 255) 0%, rgb(101, 35, 192) 100%);
+}
+
+.layout_header .header .bititle {
+    font-size: 20px;
+    font-family: "PingFangSC";
+    color: rgb(255, 255, 255);
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+    line-height: 60px;
+}
+
+.layout_header .header .logo {
+    background: url(../../images/bi/logo.png) repeat;
+    width: 38px;
+    height: 31px;
+    float: left;
+    margin: 13px 10px 13px 30px;
+}
+
+.layout_header .header .nickname {
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    color: rgb(255, 255, 255);
+    line-height: 60px;
+    float: right;
+    padding-right:30px;
+}
+
+.layout_header .header .icon {
+    background: url(../../images/bi/icon.png) repeat;
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin: 15px 5px 15px;
+}
+
+.layout_header > .navbar {
+    height: 40px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 7px 0px rgba(182, 182, 182, 0.33);
+    text-align: center;
+}
+
+.layout_nav {
+    margin-top: 20px;
+    float: left;
+    width: 300px;
+    height: 90%;
+    overflow: auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2.121px 2.121px 6px 0px rgba(199, 199, 199, 0.2);
+}
+
+.layout_nav div {
+    float: left;
+    width: 100%;
+    margin-top: 2.4px;
+}
+
+.layout_nav ul {
+    float: left;
+    width: 100%;
+}
+
+.layout_nav ul li {
+    float: left;
+    width: 100%;
+}
+
+.layout_content {
+    float: left;
+}
+
+.container {
+    overflow: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.nav > li.active {
+    border-radius: 5px;
+    /*background-color: #ccc;*/
+    /*box-shadow: 0px 4px 16px 0px rgba(0, 0, 185, 0.25);*/
+}
+
+.nav-first-leve > li.active > a {
+    background-color: #e7e7e7;
+    color:#0f0f0f !important;
+}
+
+.nav > li.active :hover {
+    border-radius: 5px;
+    /*background-color: rgb(147, 161, 236);*/
+    /*border-color: rgb(147, 161, 236);*/
+}
+
+.nav-tabs > li.active {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 0px 0px !important;
+}
+
+.nav-tabs > li.active > a {
+    border-top: 2px solid #3c8dbc !important
+}
+
+.nav > li > a {
+    font-size: 14px;
+    font-family: "PingFangSC";
+    color: rgb(53, 53, 53);
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+    padding: 14px 20px 14px 25px;
+}
+
+.nav li > a {
+    display: block;
+    /*white-space: nowrap;*/
+}
+
+.nav.navbar-right > li > a {
+    color: #999c9e;
+}
+
+.nav-menu > li.active > a {
+    color: #ffffff;
+}
+
+.unactive {
+    display: none;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background: #fff;
+}
+
+.nav > li > a i {
+    margin-right: 6px;
+}
+
+.navbar {
+    border: 0;
+}
+
+.nav-second-leve > li > a {
+    padding-left: 64px !important;
+}
+
+.nav-second-leve > li.active {
+    background-color: rgb(108, 130, 255) !important;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 185, 0.25) !important;
+}
+
+.nav-second-leve > li.active :hover {
+    background-color: rgb(147, 161, 236) !important;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 185, 0.25) !important;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: #2f4050;
+    position: relative;
+}
+
+.navbar-top-links li {
+    display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+    margin-right: 30px;
+}
+
+body.body-small .navbar-top-links li:last-child {
+    margin-right: 10px;
+}
+
+.navbar-top-links li a {
+    padding: 20px 10px;
+    min-height: 50px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+}
+
+.navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus {
+    background-color: rgb(108, 130, 255) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.nav-title {
+    height: 40px;
+    background: #367fa9;
+    color: #ffffff;
+    line-height: 40px;
+}
+
+.nav-title > span {
+    margin-left: 50px;
+}
+
+.header-menu {
+    width: 694px;
+    height: 50px;
+    margin: auto;
+    font-size: 0;
+    list-style: none;
+    padding: 0;
+    float: none;
+}
+
+.header-menu li {
+    display: inline-block;
+    width: 98px;
+    height: 50px;
+    font-size: 16px;
+    margin-right: -1px;
+    text-align: center;
+    line-height: 48px;
+}
+
+.header-menu a {
+    font-size: 16px;
+    font-family: "PingFangSC" !important;
+    color: rgb(151, 151, 151) !important;
+    text-decoration: none;
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+}
+
+.header-menu > li.active {
+    border-bottom: 3px solid rgb(107, 126, 253);
+
+}
+
+.header-menu > li.active > a {
+    color: rgb(107, 126, 253) !important;
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+}
+
+.header-menu > li > a:hover {
+    color: rgb(107, 126, 253) !important;
+}
+
+.mini-nav > .layout_nav {
+    width: 70px;
+}
+
+.mini-nav > .layout_nav span {
+    display: none;
+}
+
+.mini-nav > .layout_nav li > ul {
+    display: none;
+}
+
+.mini-nav > .layout_nav li:hover > a > span.nav-label {
+    position: absolute;
+    left: 70px;
+    display: block;
+    min-width: 140px;
+    border-radius: 2px;
+}
+
+.mini-nav > .layout_nav .nav li:hover > a > span.nav-label {
+    top: 0px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    background-color: #243747;
+    border-bottom: dashed 1px #fff;
+}
+
+.mini-nav > .layout_nav .nav li:hover > .nav-second-leve {
+    position: absolute;
+    left: 70px;
+    display: block;
+    min-width: 140px;
+    border-radius: 2px;
+}
+
+.mini-nav > .layout_nav .nav li:hover > .nav-second-leve {
+    top: 40px;
+    font-size: 12px;
+    background-color: #2f4050;
+}
+
+.mini-nav > .layout_nav .nav li:hover > .nav-second-leve > li > a {
+    padding-left: 44px;
+}
+
+.active > a > .fa.arrow:before {
+    content: "\f107";
+}
+
+.fa.arrow:before {
+    content: "\f104";
+}
+
+.btn-primary {
+    border-radius: 5px;
+    background-color: rgb(108, 130, 255) !important;
+    border-color: rgb(108, 130, 255) !important;
+}
+
+.btn-primary:hover {
+    background-color: rgb(147, 161, 236) !important;
+    border-color: rgb(147, 161, 236) !important;
+}
+
+.title_left > h3 {
+    font-size: 18px;
+    font-family: "PingFangSC";
+    color: rgb(53, 53, 53);
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+}
+
+.layui-layer-title {
+    background-image: -moz-linear-gradient(0deg, rgb(108, 130, 255) 0%, rgb(101, 35, 192) 100%);
+    background-image: -webkit-linear-gradient(0deg, rgb(108, 130, 255) 0%, rgb(101, 35, 192) 100%);
+    background-image: -ms-linear-gradient(0deg, rgb(108, 130, 255) 0%, rgb(101, 35, 192) 100%);
+}
+
+.flgl {
+    background: url(../../images/bi/flgl.png) repeat;
+    width: 17px !important;
+    height: 17px !important;
+    float: left !important;
+    padding: 0 !important;
+}
+
+.mkgl {
+    background: url(../../images/bi/mkgl.png) repeat;
+    width: 16px !important;
+    height: 17px !important;
+    float: left !important;
+    padding: 0 !important;
+}
+
+.sjygl {
+    background: url(../../images/bi/sjygl.png) repeat;
+    width: 16px !important;
+    height: 15px !important;
+    float: left !important;
+    padding: 0 !important;
+}
+
+.rzgl {
+    background: url(../../images/bi/rzgl.png) repeat;
+    width: 17px !important;
+    height: 17px !important;
+    float: left !important;
+    padding: 0 !important;
+}
+
+.ymgl {
+    background: url(../../images/bi/ymgl.png) repeat;
+    width: 15px !important;
+    height: 17px !important;
+    float: left !important;
+    padding: 0 !important;
+}
+
+.sqlpz {
+    background: url(../../images/bi/sqlpz.png) repeat;
+    width: 15px !important;
+    height: 15px !important;
+    float: left !important;
+    padding: 0 !important;
+}
+
+/*.nav > li.active .ymgl {*/
+    /*background: url(../../images/bi/ymgl1.png) repeat !important;*/
+/*}*/
+
+/*.nav > li.active .flgl {*/
+    /*background: url(../../images/bi/flgl1.png) repeat !important;*/
+/*}*/
+
+/*.nav > li.active .mkgl {*/
+    /*background: url(../../images/bi/mkgl1.png) repeat !important;*/
+/*}*/
+
+/*.nav > li.active .sjygl {*/
+    /*background: url(../../images/bi/sjygl1.png) repeat !important;*/
+/*}*/
+
+/*.nav > li.active .rzgl {*/
+    /*background: url(../../images/bi/rzgl1.png) repeat !important;*/
+/*}*/
+
+/*.nav > li.active .sqlpz {*/
+    /*background: url(../../images/bi/sqlpz1.png) repeat !important;*/
+/*}*/
+
+

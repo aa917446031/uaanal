@@ -1,0 +1,128 @@
+.popup-panel{
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    width: 640px;
+  /*  height: 630px;*/
+}
+
+.popup-panel-head-x{
+    font-size: 22px;
+    font-family: "PingFangSC";
+    color: rgb(255, 255, 255);
+    line-height: 0.75;
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+    cursor: pointer;
+    float: right;
+}
+
+.popup-panel-head-title {
+    font-size: 18px;
+    font-family: "PingFangSC";
+    color: rgb(255, 255, 255);
+    line-height: 1;
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+}
+
+.popup-panel-head {
+    padding: 20px;
+    text-align: center;
+    background-image: -moz-linear-gradient( 0deg, rgb(108,130,255) 0%, rgb(101,35,192) 100%);
+    background-image: -webkit-linear-gradient( 0deg, rgb(108,130,255) 0%, rgb(101,35,192) 100%);
+    background-image: -ms-linear-gradient( 0deg, rgb(108,130,255) 0%, rgb(101,35,192) 100%);
+    width: 640px;
+    height: 60px;
+}
+
+.popup-panel-foot {
+    border-radius: 5px;
+    background-color: rgb(248, 248, 248);
+    width: 640px;
+    height: 78px;
+}
+
+.popup-btns {
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 550;
+    text-align: center;
+    padding: 20px;
+}
+.popup-cancel {
+    font-size: 14px;
+    font-family: "PingFangSC";
+    color: rgb(151, 151, 151);
+    line-height: 1.286;
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+    margin-right: 20px;
+}
+.popup-cancel-case {
+    border-width: 1px;
+    border-color: rgb(151, 151, 151);
+    border-style: solid;
+    border-radius: 5px;
+    background-color: rgb(243, 243, 243);
+    width: 108px;
+    height: 36px;
+}
+.popup-save {
+    font-size: 14px;
+    font-family: "PingFangSC";
+    color: rgb(255, 255, 255);
+    line-height: 1.286;
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+    margin-right: 20px;
+}
+.popup-save-case {
+    border-radius: 5px;
+    background-color: rgb(108, 130, 255);
+    width: 110px;
+    height: 38px;
+}
+
+.popup-from-title  {
+    font-size: 14px;
+    font-family: "PingFangSC";
+    color: rgb(53, 53, 53);
+    line-height: 1.286;
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+}
+
+.popup-from-text {
+    border-width: 1px;
+    border-color: rgb(225, 225, 225);
+    border-style: solid;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    width: 198px;
+    height: 32px;
+}
+
+.popup-from-required {
+    font-size: 14px;
+    font-family: "PingFangSC";
+    color: rgb(230, 0, 18);
+    line-height: 1.286;
+    -moz-transform: scale(1, 1.11);
+    -webkit-transform: scale(1, 1.11);
+    -ms-transform: scale(1, 1.11);
+}
+
+#myModal .input-group{
+    margin-bottom: 0px;
+}
+
+
+

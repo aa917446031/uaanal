@@ -1,0 +1,77 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- 使用此处的 title, link, script 来替换布局模板中的 head 内容，注意如果 没有 也需要使用 ~{} 进行占位 -->
+<head th:replace="layouts/layout2 :: common_header(~{::title},~{::script},~{::link})">
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <link th:href="@{/css/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/daterangepicker/css/daterangepicker.css}" rel="stylesheet">
+    <link th:href="@{/css/custom.css}" rel="stylesheet">
+</head>
+<body>
+<script th:src="@{/js/echarts/echarts.min.js}"></script>
+<script th:src="@{/js/layer/layer.js}"></script>
+<div class="x_panel">
+    <div class="x_content">
+        <div class="form-inline">
+            <div class="form-group">
+                <select id="type" class="form-control" onchange="changeType()">
+                    <option value="day">日</option>
+                    <option value="week">周</option>
+                    <option value="month">月</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>请选择时间段：</label>
+                <input type="text" placeholder="请选择时间段" class="form-control js-daterange"
+                       style="width: 260px;">
+            </div>
+            <div class="form-group">
+                <label>群ID：</label>
+                <input type="text" id="groupId" placeholder="请输入群ID..." class="form-control"
+                       style="width: 260px;">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" @click="searchData"><i
+                        class="fa fa-search"></i> 搜索
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<script type="text/javascript">
+
+
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            name: '类型',
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+.modelDiv {
+    border: 1px solid #ccc;
+    margin: 5px;
+    float: left;
+}
+
+.mHead {
+    border-bottom: #0d8ddb;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-family: "PingFangSC";
+    color: rgb(53, 53, 53);
+    text-align: left;
+    padding-left: 15px;
+    line-height: 40px;
+}
+
+.mHead .icon {
+    background: url(../../images/bi/headnode.png) repeat;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin: 12px 10px;
+
+}
+
+.mActive {
+    border: 1px solid #FFA00A;
+}
+
+.modelCharts {
+}
+
+.grid-stack {
+    /*background: #ffffff;*/
+    padding-top: 10px;
+}
+
+.grid-stack-item-content {
+    color: #2c3e50;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.moreOp {
+    background: url(../../images/bi/more.png) repeat;
+    width: 19px;
+    height: 19px;
+    float: right;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.remove {
+    background: url(../../images/bi/remove.png) repeat;
+    width: 22px;
+    height: 19px;
+    float: right;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.filtrate {
+    background: url(../../images/bi/filtrate.png) repeat;
+    width: 16px;
+    height: 16px;
+    float: right;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.chartType {
+    background: url(../../images/bi/chartType.png) repeat;
+    width: 16px;
+    height: 16px;
+    float: right;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.opBar {
+    position: absolute;
+    width: 26px;
+    height: 100px;
+    right: 10px;
+    top: 40px;
+    z-index: 99;
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 0 hsla(0, 0%, 75.3%, .5);
+    border: 1px solid #d4d4d4;
+    display: none;
+}
+
+.opWindow {
+    position: fixed;
+    width: 200px;
+    height: 300px;
+    z-index: 99;
+    border-radius: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 0 hsla(0, 0%, 75.3%, .5);
+    border: 1px solid #d4d4d4;
+    display: none;
+}
+
+.opTitle {
+    border-bottom: 1px solid #0d8ddb;
+    width: 100%;
+    height: 30px;
+    background-color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.opFoot {
+    border-top: 1px solid #0d8ddb;
+    width: 100%;
+    height: 40px;
+    background-color: #ffffff;
+    font-size: 14px;
+    line-height: 40px;
+    bottom: 0;
+    position: absolute;
+}
+
+.opFoot a {
+    height: 28px;
+    line-height: 28px;
+    margin: 5px 5px 0;
+    padding: 0 15px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    color: #333;
+    border-radius: 2px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.opFoot .btn0 {
+    border-color: #1E9FFF;
+    background-color: #1E9FFF;
+    color: #fff;
+}
+
+.showBar {
+    display: block !important;
+}
+
+.chartItem {
+    width: 25%;
+    padding: 5px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chartContent {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.chartContent:hover {
+    border: 1px solid #00E8D7;
+}
+
+.chartIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.opProbe {
+    position: fixed;
+    width: 220px;
+    height: 110px;
+    z-index: 99;
+    border-radius: 3px;
+    background-color: #ffffffd1;
+    box-shadow: 0 1px 2px 0 hsla(0, 0%, 75.3%, .5);
+    border: 1px solid #d4d4d4;
+    display: none;
+}
+
+.probeFoot {
+    border-top: 1px solid #ccc;
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    bottom: 0;
+    position: absolute;
+}
+
+.probeFoot .btn2 {
+    width: 30%;
+    height: 40px;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.probeFoot .btn2:hover {
+    background-color: #ccc;
+}
+
+.probeFoot .btn2 .icon {
+    background: url(../../images/bi/probe.png) repeat;
+    width: 16px;
+    height: 16px;
+    float: left;
+}
+
+.probeFoot .btn2 .info {
+    height: 16px;
+    float: left;
+}
+
+.probeWindow {
+    width: 200px;
+    height: 300px;
+    position: fixed;
+    overflow: auto;
+    text-align: left;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    border: 1px solid #9CC2CB;
+    display: none;
+}
+
+.probeItem {
+    width: 100%;
+    height: 40px;
+    line-height: 20px;
+    padding: 10px;
+}
+
+.probeItem:hover {
+    background-color: #ccc;
+}
+
+.crumbbar {
+    width: 100%;
+    height: 30px;
+    display: none;
+    padding-left: 15px;
+}
+
+.crumbbar li {
+    float: left;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.opInfo {
+    text-align: left;
+    padding: 10px;
+}
+
+.title_left >h3 >a{
+    font-size: 18px !important;
+    font-family: "PingFangSC" !important;
+    color: rgb(53, 53, 53) !important;
+    -moz-transform: scale(1, 1.11) !important;
+    -webkit-transform: scale(1, 1.11) !important;
+    -ms-transform: scale(1, 1.11) !important;
+}
+.title_left >h3 {
+    font-size: 18px !important;;
+    font-family: "PingFangSC" !important;
+    color: rgb(151, 151, 151) !important;
+    -moz-transform: scale(1, 1.11) !important;
+    -webkit-transform: scale(1, 1.11) !important;
+    -ms-transform: scale(1, 1.11) !important;
+}
+
+.bgcolor-3{
+    background-color: rgb(248, 248, 248) !important;
+}
+.showCrumbbar{
+    display: block;
+}
